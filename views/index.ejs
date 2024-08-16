@@ -1,0 +1,14 @@
+<%- include('partials/header', { title: 'Messages' }) %>
+
+<main>
+	<ul>
+		<% messages.forEach(function(message) { %>
+		<li>
+			<strong><%= message.user %>:</strong> <%= message.text %>
+			<em>on <%= message.added.toLocaleString() %></em>
+		</li>
+		<% }); %>
+	</ul>
+</main>
+
+<%- include('partials/footer') %>
