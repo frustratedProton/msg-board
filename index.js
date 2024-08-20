@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import msgRouter from './routes/msgRoute.js';
+
 const app = express();
 const PORT = 3000;
 
@@ -12,9 +13,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-app.get('/', msgRouter);
+app.use('/', msgRouter);
 
-app.listen(PORT, () => console.log(`Running at ${PORT}`));
+app.get('/test', (req, res) => {
+	res.send('Test route works!');
+});
+
+app.listen(PORT, () =>
+	console.log(
+		`Running at ${PORT} ${__filename} ${path.join(__dirname, 'views')}`
+	)
+);

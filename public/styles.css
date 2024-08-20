@@ -1,55 +1,69 @@
-/* Global reset */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+	--text: hsl(0, 5%, 4%);
+	--background: hsl(0, 25%, 98%);
+	--primary: hsl(4, 38%, 50%);
+	--secondary: hsl(4, 53%, 74%);
+	--accent: hsl(3, 68%, 65%);
 }
 
 html,
 body {
-	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Merriweather', serif;
 	line-height: 1.6;
-	background-color: #f4f4f4;
-	color: #333;
+	background-color: var(--background);
+	color: var(--text);
+	display: flex;
+	flex-direction: column;
+}
+
+.main-content {
+	flex: 1;
+	padding: 20px;
 }
 
 header {
-	background-color: #007bff;
+	background-color: var(--primary);
 	color: #fff;
-	padding: 10px 20px;
+	padding: 10px 0;
+	text-align: center;
 }
 
 header h1 {
 	margin: 0;
+	font-family: 'Montserrat', sans-serif;
 }
 
-nav a {
+header a {
 	color: #fff;
-	margin-right: 15px;
+	margin: 0 10px;
 	text-decoration: none;
+	font-weight: bold;
+	transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
-nav a:hover {
+header a:hover {
+	color: var(--secondary);
 	text-decoration: underline;
 }
 
-footer {
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	padding: 10px;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-}
-
-footer p {
-	margin: 0;
-}
-
-/* Additional styling for the main content */
-main {
+.container {
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
 	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 ul {
@@ -58,67 +72,106 @@ ul {
 }
 
 li {
-	background: #fff;
-	margin-bottom: 10px;
-	padding: 15px;
-	border-radius: 5px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid var(--secondary);
+	padding: 10px 0;
+}
+
+li:last-child {
+	border-bottom: none;
 }
 
 strong {
-	color: #333;
+	color: var(--text);
 }
 
 em {
-	font-size: 0.9em;
-	color: #666;
+	color: var(--secondary);
+	font-style: italic;
 }
 
+/* Form styles */
 form {
-	background: #fff;
-	padding: 20px;
-	border-radius: 5px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	margin-top: 20px;
+	margin: 20px 0;
 }
 
 label {
 	display: block;
 	margin-bottom: 8px;
-	color: #333;
+	font-weight: bold;
 }
 
-input,
-textarea {
+input[type='text'] {
 	width: 100%;
-	padding: 10px;
+	padding: 8px;
 	margin-bottom: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	font-size: 1em;
-}
-
-textarea {
-	resize: vertical;
-	min-height: 100px;
+	border: 1px solid var(--secondary);
+	border-radius: 4px;
 }
 
 button {
-	background-color: #007bff;
-	color: #fff;
-	border: none;
+	display: inline-block;
 	padding: 10px 15px;
-	border-radius: 5px;
+	font-size: 16px;
+	color: #fff;
+	background-color: var(--primary);
+	border: none;
+	border-radius: 4px;
 	cursor: pointer;
-	font-size: 1em;
+	transition: background-color 0.3s ease;
 }
 
 button:hover {
-	background-color: #0056b3;
+	background-color: var(--accent);
 }
 
-.error {
-	color: red;
-	margin-top: 10px;
-	font-size: 0.9em;
+a {
+	color: var(--accent);
+	text-decoration: none;
+	font-weight: bold;
+	transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+	color: var(--secondary);
+	text-decoration: underline;
+}
+
+.new-message-button {
+	display: inline-block;
+	padding: 15px 25px;
+	font-size: 18px;
+	color: #fff;
+	background-color: var(--primary);
+	border: none;
+	border-radius: 4px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	margin: 20px auto;
+	display: block;
+}
+
+.new-message-button:hover {
+	background-color: hsl(4, 53%, 26%);
+	color: #fff;
+}
+
+footer {
+	text-align: center;
+	padding: 20px;
+	background-color: var(--primary);
+	color: #fff;
+}
+
+footer a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+footer a:hover {
+	color: var(--secondary);
+	text-decoration: underline;
 }

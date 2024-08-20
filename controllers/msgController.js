@@ -11,24 +11,16 @@ const messages = [
 	},
 ];
 
-export const getAllPosts = (req, res) => {
-	res.render('index', { title: 'Messages', messages });
+export const getMessages = (req, res) => {
+	res.render('index', { title: 'Mini Messageboard', messages });
 };
 
 export const getNewForm = (req, res) => {
-	res.render('new', { title: 'New Message', error: req.query.error });
+	res.render('form', { title: 'New Messages', messages });
 };
 
-export const postNewMessage = (req, res) => {
-	const { user, text } = req.body;
-	if (user && text) {
-		messages.push({
-			text,
-			user,
-			added: new Date(),
-		});
-		res.redirect('/');
-	} else {
-		res.redirect('/new?error=Please provide both user and message text.');
-	}
+export const addMessage = (req, res) => {
+	const { messageUser, messageText } = req.body;
+	messages.push({ text: messageText, user: messageUser, added: new Date() });
+	res.redirect('/');
 };

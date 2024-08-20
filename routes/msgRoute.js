@@ -1,11 +1,23 @@
 import express from 'express';
-import { getAllPosts, getNewForm, postNewMessage } from '../controllers/msgController.js';
+import {
+	addMessage,
+	getMessages,
+	getNewForm,
+} from '../controllers/msgController.js';
+
 const router = express.Router();
 
-router.get('/', getAllPosts);
+router.get('/', (req, res) => {
+	getMessages(req, res);
+});
 
-router.get('/new', getNewForm);
 
-router.post('/new', postNewMessage)
+router.get('/new', (req, res) => {
+	getNewForm(req, res);
+});
+
+router.post('/new', (req, res) => {
+	addMessage(req, res);
+});
 
 export default router;

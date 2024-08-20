@@ -1,14 +1,16 @@
-<%- include('partials/header', { title: 'Messages' }) %>
+<%- include('partials/header') %>
 
-<main>
-	<ul>
-		<% messages.forEach(function(message) { %>
-		<li>
-			<strong><%= message.user %>:</strong> <%= message.text %>
-			<em>on <%= message.added.toLocaleString() %></em>
-		</li>
-		<% }); %>
-	</ul>
-</main>
-
+<div class="main-content">
+	<div class="container">
+		<ul>
+			<% messages.forEach(message => { %>
+			<li>
+				<strong><%= message.user %>:</strong> <%= message.text %>
+				<em>(<%= message.added.toLocaleString() %>)</em>
+			</li>
+			<% }) %>
+		</ul>
+		<a href="/new" class="new-message-button">New Message</a>
+	</div>
+</div>
 <%- include('partials/footer') %>
