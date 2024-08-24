@@ -5,8 +5,8 @@
 		<ul>
 			<% messages.forEach(message => { %>
 			<li>
-				<strong><%= message.user %>:</strong> <%= message.text %>
-				<em>(<%= message.added.toLocaleString() %>)</em>
+				<strong><%= message.username %>:</strong> <%= message.message %>
+				<em>(<%= message.posting_date.toLocaleString() %>)</em>
 			</li>
 			<% }) %>
 		</ul>
